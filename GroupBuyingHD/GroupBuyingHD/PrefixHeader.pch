@@ -1,0 +1,59 @@
+//
+//  PrefixHeader.pch
+//  团购HD
+//
+//  Created by 李小亚 on 16/7/31.
+//  Copyright © 2016年 李小亚. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#import "MJExtension.h"
+#import "UIView+AdjustFrame.h"
+#import "UIView+AutoLayout.h"
+#import "UIButton+Extension.h"
+#import "XYMetaDataTool.h"
+#import <Foundation/Foundation.h>
+
+
+//通知
+#define XYNotificationCenter [NSNotificationCenter defaultCenter]
+//排序通知
+#define XYSortDidChangeNotification @"XYSortDidChangeNotification"
+#define XYSelectedSort              @"XYSelectedSort"
+//城市通知
+#define XYCityDidChangeNotification @"XYCityDidChangeNotification"
+#define XYSelectedCity              @"XYSelectedCity"
+
+//区域通知
+#define XYRegionDidChangeNotification @"XYRegionDidChangeNotification"
+#define XYSelectedRegion              @"XYSelectedRegion"
+#define XYSelectedSubRegion           @"XYSelectedSubRegion"
+
+//分类通知
+#define XYCategoryDidChangeNotification @"XYCategoryDidChangeNotification"
+#define XYSelectedCategory              @"XYSelectedCategory"
+#define XYSelectedSubCategory           @"XYSelectedSubCategory"
+
+
+
+#define XYGlobalBG [UIColor colorWithWhite:0.902 alpha:1.000]
+
+#define XYKeyWindow [UIApplication sharedApplication].keyWindow
+#define XYScreenWidth [UIScreen mainScreen].bounds.size.width
+#define XYScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#ifdef DEBUG//调试
+
+//#define XYLog(...) NSLog(__VA_ARGS__)
+#define XYLog(...) NSLog(@"%s\n %@\n\n", __func__, [NSString stringWithFormat:__VA_ARGS__])
+
+#else//发布
+
+#define XYLog(...)
+
+#endif
+
+#endif /* PrefixHeader_pch */

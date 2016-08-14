@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XYCitiesViewController">
+            <connections>
+                <outlet property="citiesTableView" destination="pyG-8p-q5M" id="O5a-1r-r58"/>
+                <outlet property="coverBtn" destination="JHX-0L-Q4Z" id="cBT-cd-dxp"/>
+                <outlet property="searchBar" destination="dtj-Az-wc9" id="Bgr-nz-TD0"/>
+                <outlet property="topNavConstraint" destination="gAw-79-dBb" id="0av-Qt-KZv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhc-Wx-cAQ" userLabel="导航栏">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                    <subviews>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_navigationBar_normal" translatesAutoresizingMaskIntoConstraints="NO" id="rqz-bm-kxa" userLabel="背景图">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hl0-oe-JO9" userLabel="取消按钮">
+                            <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="62" id="AjO-7E-ffX"/>
+                            </constraints>
+                            <state key="normal" image="btn_navigation_close"/>
+                            <connections>
+                                <action selector="dismissBtnClick" destination="-1" eventType="touchUpInside" id="Eub-3b-DbZ"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="切换城市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6H-e3-Q10">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="f6H-e3-Q10" secondAttribute="bottom" id="2CK-sD-7Ys"/>
+                        <constraint firstItem="f6H-e3-Q10" firstAttribute="leading" secondItem="zhc-Wx-cAQ" secondAttribute="leading" id="A3n-mw-KrI"/>
+                        <constraint firstItem="rqz-bm-kxa" firstAttribute="leading" secondItem="zhc-Wx-cAQ" secondAttribute="leading" id="B6l-c0-90D"/>
+                        <constraint firstAttribute="height" constant="62" id="NKw-ew-A5n"/>
+                        <constraint firstItem="hl0-oe-JO9" firstAttribute="top" secondItem="zhc-Wx-cAQ" secondAttribute="top" id="Rxz-13-xdH"/>
+                        <constraint firstItem="f6H-e3-Q10" firstAttribute="top" secondItem="zhc-Wx-cAQ" secondAttribute="top" id="SzT-AG-6ib"/>
+                        <constraint firstAttribute="trailing" secondItem="rqz-bm-kxa" secondAttribute="trailing" id="XEM-11-nds"/>
+                        <constraint firstAttribute="bottom" secondItem="hl0-oe-JO9" secondAttribute="bottom" id="abt-GB-vc5"/>
+                        <constraint firstAttribute="trailing" secondItem="f6H-e3-Q10" secondAttribute="trailing" id="cmO-o0-KW3"/>
+                        <constraint firstAttribute="bottom" secondItem="rqz-bm-kxa" secondAttribute="bottom" id="iwb-Mv-z7E"/>
+                        <constraint firstItem="rqz-bm-kxa" firstAttribute="top" secondItem="zhc-Wx-cAQ" secondAttribute="top" id="qCL-L2-gJH"/>
+                        <constraint firstItem="hl0-oe-JO9" firstAttribute="leading" secondItem="zhc-Wx-cAQ" secondAttribute="leading" id="scW-bc-htj"/>
+                    </constraints>
+                </view>
+                <searchBar contentMode="redraw" placeholder="请输入城市名称或者拼音" backgroundImage="bg_login_textfield" translatesAutoresizingMaskIntoConstraints="NO" id="dtj-Az-wc9">
+                    <rect key="frame" x="10" y="72" width="300" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="6RI-1k-tcW"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="xom-jn-bPt"/>
+                    </connections>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pyG-8p-q5M">
+                    <rect key="frame" x="10" y="126" width="300" height="442"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="8WJ-nG-LiV"/>
+                        <outlet property="delegate" destination="-1" id="XsL-ZM-BOf"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHX-0L-Q4Z" userLabel="遮盖层">
+                    <rect key="frame" x="0.0" y="126" width="320" height="442"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="coverClick" destination="-1" eventType="touchUpInside" id="QOm-JI-qud"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="JHX-0L-Q4Z" secondAttribute="trailing" id="2kk-PN-PLC"/>
+                <constraint firstAttribute="trailing" secondItem="dtj-Az-wc9" secondAttribute="trailing" constant="10" id="3LJ-mu-gIs"/>
+                <constraint firstItem="dtj-Az-wc9" firstAttribute="top" secondItem="zhc-Wx-cAQ" secondAttribute="bottom" constant="10" id="6sM-zI-zce"/>
+                <constraint firstAttribute="bottom" secondItem="pyG-8p-q5M" secondAttribute="bottom" id="L16-p0-H5v"/>
+                <constraint firstItem="pyG-8p-q5M" firstAttribute="top" secondItem="dtj-Az-wc9" secondAttribute="bottom" constant="10" id="L74-1j-zSF"/>
+                <constraint firstAttribute="bottom" secondItem="JHX-0L-Q4Z" secondAttribute="bottom" id="LIf-82-wGW"/>
+                <constraint firstAttribute="trailing" secondItem="pyG-8p-q5M" secondAttribute="trailing" constant="10" id="QoM-Ar-M7p"/>
+                <constraint firstItem="JHX-0L-Q4Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WsL-jz-9BA"/>
+                <constraint firstItem="JHX-0L-Q4Z" firstAttribute="top" secondItem="dtj-Az-wc9" secondAttribute="bottom" constant="10" id="b9Q-FK-lMK"/>
+                <constraint firstItem="zhc-Wx-cAQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gAw-79-dBb"/>
+                <constraint firstAttribute="trailing" secondItem="zhc-Wx-cAQ" secondAttribute="trailing" id="jHh-jW-vnc"/>
+                <constraint firstItem="dtj-Az-wc9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="lTf-HX-x6m"/>
+                <constraint firstItem="pyG-8p-q5M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ng4-z5-sba"/>
+                <constraint firstItem="zhc-Wx-cAQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sU3-So-myc"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="353" y="420"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg_login_textfield" width="9" height="11"/>
+        <image name="bg_navigationBar_normal" width="124" height="124"/>
+        <image name="btn_navigation_close" width="30" height="30"/>
+    </resources>
+</document>
